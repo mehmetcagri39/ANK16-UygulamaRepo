@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loading Bar</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 800px;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+        .container {
+            width: 30%;
+            border: 2px solid black;
+            height: 30px;
+            position: relative;
+        }
+        .loading-bar {
+            height: 100%;
+            background-color: #00f;
+            position: absolute;
+            animation: loading 3s infinite;
+        }
+        .Loading{
+            
+        }
+
+        @keyframes loading {
+            0% {
+                width: 0;
+            }
+            50% {
+                width: 50%;
+            }
+            75% {
+                width: 100%;
+            }
+
+            100% {
+                width: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="Loading">
+        Loading
+    </div>
+
+    <div class="container">
+        
+        <div class="loading-bar">
+            
+        </div>
+    </div>
+    
+</body>
+</html>

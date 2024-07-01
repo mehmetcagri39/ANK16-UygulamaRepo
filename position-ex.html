@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>POSITIONING</title>
+    <!-- <link rel="stylesheet" href="position-ex.css" /> -->
+  </head>
+  <style>
+  .wrapper{
+    width: 700px;
+    height: 700px;
+    border: 5px solid blue;
+    margin-top: -9px;
+    margin-left:-8px
+    
+}
+.container{
+    width: 350px;
+    height: 350px;
+    border: 2px solid black;
+    margin-top: 20px;
+    margin-left: 20px;
+    border: 1px solid red;
+    opacity: 0.9;
+    
+}
+.box{
+    width: 80px;
+    height: 80px;
+   text-align: center;
+   font-weight: 700;
+   border:1px solid gray;
+
+}
+.box-1{
+    position: relative; 
+    top: 60px;
+    left: 340px;
+    z-index: -1;
+
+}
+#box-2{
+    position: absolute;
+    top: 200px;
+    left: 75px;
+
+}
+#box-3{
+    position: absolute;
+    top: 180px;
+    left: 100px;
+    z-index: 2;
+
+}
+
+#box-4{
+    position: fixed;
+    top: 0;
+    left: 10px;
+    z-index: -1;
+    border:2px solid grey;
+}
+#box-5{
+    position: sticky;
+    top: 20px;
+    left: 300px;
+    border:2px solid grey;
+
+}
+  </style>
+  <body>
+    <div class="wrapper">
+      <div style="background-color: pink;" class="box box-1" >1Relative</div>
+    <div style="background-color: bisque;" class="container container">
+        <div style="background-color: turquoise;" class="box" id="box-2" >2Absolute</div>
+        <div style="background-color: yellow;" class="box" id="box-3" >3Absolute</div>
+      </div>
+      <div style="background-color: blue;" class="box" id="box-4" >4Fixed</div>
+      <div style="background-color: green;" class="box" id="box-5">5Sticky</div>
+    </div>
+  </body>
+</html>
