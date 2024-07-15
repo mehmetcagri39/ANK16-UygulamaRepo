@@ -1,1 +1,0 @@
-# ANK16-UygulamaRepo
