@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"path": "../../ba-boost-ank16-frontend"
+		},
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "ANK16-UygulamaRepo"
+	}
+}

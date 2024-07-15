@@ -1,0 +1,76 @@
+.card {
+    width: 420px;
+    height: 240px;
+    background-color: #353535;
+    color: white;
+    display: flex;
+    align-items: center;
+    border-radius: 10px;
+    position: relative;
+
+    img {
+        height: 240px;
+        width: 40%;
+        object-fit: cover;
+        border-radius: 10px 0 0 10px;
+    }
+    .delete{
+        left: 0;
+        border-radius: 10px 0 0 10px;
+        background-color: #20B2AA;
+        position: absolute;
+        top: 0;
+        width: 20px;
+        height: 240px;
+        border:  none;
+        cursor: pointer;
+        opacity: 0;
+        transition: 1s;
+        &:hover{
+            width: 40%;
+            opacity: 1;
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+
+    }
+    .edit {
+        right: 0;
+        border-radius: 0 10px 10px 0;
+        background-color: lightgreen;
+        position: absolute;
+        top: 0;
+        width: 20px;
+        height: 240px;
+        border: none;
+        cursor: pointer;
+        opacity: 0;
+        transition: 1s;
+        &:hover {
+            width: 60%;
+            opacity: 1;
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+        }  }
+
+    &-body {
+        padding: 10px;
+        h4 {
+            color: lightseagreen;
+            text-align: center;
+            font-size: 16px;
+            letter-spacing: 1px;
+        }
+    }
+
+}
+.recipe-list{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 40px;
+}
