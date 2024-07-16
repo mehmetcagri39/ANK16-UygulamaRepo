@@ -1,13 +1,19 @@
-import React from "react";
+import React, { useContext } from "react";
 import Recipe from "./Recipe";
+import DataContext from "../../context/DataContext";
+import SearchBar from "./SearchBar";
 
-const RecipeList = ({ fakeRecipes, deleteRecipe, editRecipe }) => {
+
+const RecipeList = () => {
+  const{fakeRecipes} = useContext(DataContext);
+
   return (<>
-  <h3 style={{marginLeft:"25px"}}></h3>
+      <SearchBar/>
     <div className="recipe-list">
-      {fakeRecipes.map(recipe => 
+      {
+      fakeRecipes.map(recipe => 
       !recipe.isDeleted &&
-        <Recipe recipe={recipe} deleteRecipe={deleteRecipe} editRecipe={editRecipe} key={recipe.id} />
+        <Recipe recipe={recipe}  key={recipe.id} />
       )}
     </div>
     </>

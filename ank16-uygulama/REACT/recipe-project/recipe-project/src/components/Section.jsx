@@ -1,47 +1,24 @@
-import React, { useEffect, useState } from 'react';
+import React, {useContext, useEffect, useState } from 'react';
 import '../assets/style/section.scss';
+import DataContext from '../../context/DataContext';
 
-const Section = ({ addRecipe, fakeRecipes, selectedRecipe }) => {
-    const [title, setTitle] = useState("");
-    const [description, setDescription] = useState("");
-    const [image, setImage] = useState("");
+const Section = () => {
+    const {selectedRecipe,
+        title,
+        description,
+        image,
+        setTitle,
+        setDescription,
+        setImage,
+        handleSubmit,
+        titleError,
+        descError
 
-    const [titleError, setTitleError] = useState(false);
-    const [descError, setDescError] = useState(false);
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
+    } = useContext(DataContext);
+    
 
-        if (title === "" && description === "" || title !== "" && description === "" || title === "" && description !== "") {
-            setTitleError(true);
-            setDescError(true);
-            return;
-        } else {
-            setTitleError(false);
-            setDescError(false);
-        }
-
-        addRecipe({
-            id: (Number(fakeRecipes[fakeRecipes.length - 1].id) + 1).toString(),
-            title: title,
-            description: description,
-            image: image
-        });
-
-        setTitle("");
-        setDescription("");
-        setImage("");
-    }
-
-    useEffect(() => {
-        if (selectedRecipe) {
-            setTitle(selectedRecipe.title);
-            setDescription(selectedRecipe.description);
-            setImage(selectedRecipe.image);
-            window.scrollTo(0, 0);  // Sayfanın başına yönlendir
-
-        }
-    }, [selectedRecipe]);
+    
 
     return (
         <form onSubmit={handleSubmit}>
