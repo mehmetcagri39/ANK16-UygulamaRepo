@@ -50,9 +50,9 @@
       "kitapAdi": "sdfsdf",
       "kitapYazari": "sdfsdf",
       "kitapKategorisi": "Roman",
-      "kitapSayfaSayisi": "32",
+      "kitapSayfaSayisi": "323",
       "kitapResmi": "",
-      "kitapAciklamasi": "rearasr"
+      "kitapAciklamasi": "asdfsdf"
     },
     {
       "id": "7",
@@ -62,6 +62,44 @@
       "kitapSayfaSayisi": "400",
       "kitapResmi": "https://img.kitapyurdu.com/v1/getImage/fn:11852639/wh:true/wi:220",
       "kitapAciklamasi": "Özellikle teknolojinin, robotların ve global bir ekonominin kuralları değiştirdiği bir dünyada, zengin olmak için yüksek gelirinizin olması gerektiği efsanesini çürütür.\nAktif yatırımlar edinmenin ve oluşturmanın neden yüklü bir maaştan daha önemli olabileceğini, işletme sahiplerinin ve yatırımcıların keyfini sürdüğü vergi avantajlarını öğretir. Evinizin aktif bir yatırım olduğuna karşı meydan okur; emlak balonu patladığında ve yüksek faizli mortgage fiyaskosu şiddetlendiği zaman milyonlarca insanın doğrudan öğrendiği gibi.\nBize okul sistemlerinin parayla ilgili öğrettiklerine neden güvenmememiz gerektiğini hatırlatır ve bu önemli yeteneğin neden bugün hiç olmadığı kadar önemli olduğunu açıklar.Çocuklarınıza paraya dair neler öğretmeniz gerektiğini açıklar, böylece onlar da günümüz dünyasının zorluklarına ve fırsatlarına kendilerini hazırlayabilir ve hak ettikleri zengin yaşamı sürebilir.\n“Zengin Baba Yoksul Baba, finansal geleceklerinin kontrolünü eline almak isteyenler için bir başlangıç noktasıdır.” -USA TODAY"
+    },
+    {
+      "id": "8",
+      "kitapAdi": "C#",
+      "kitapYazari": "MCC",
+      "kitapKategorisi": "Yazılım",
+      "kitapSayfaSayisi": "250",
+      "kitapResmi": "",
+      "kitapAciklamasi": "C#"
+    },
+    {
+      "id": "9",
+      "kitapAdi": "testss",
+      "kitapYazari": "deneme",
+      "kitapKategorisi": "Diğer",
+      "kitapSayfaSayisi": "111",
+      "kitapResmi": "",
+      "kitapAciklamasi": "sxdcfgdfg",
+      "isDeleted": true
+    },
+    {
+      "id": "10",
+      "kitapAdi": "sdfsdf",
+      "kitapYazari": "sdfs",
+      "kitapKategorisi": "Roman",
+      "kitapSayfaSayisi": "343",
+      "kitapResmi": "",
+      "kitapAciklamasi": "n ve oluşturmanın neden yüklü bir maaştan daha önemli olabileceğini, işletme sahiplerinin ve yatırımcıların keyfini sürdüğü vergi avantajlarını öğretir. Evinizin aktif bir yatırım olduğuna karşı meydan okur; emlak balonu patladığında ve yüksek faizli mortgage fiyaskosu şiddetlendiği zaman milyonlarca insanın doğrudan öğrendiği gibi.\\nBize okul sistemlerinin parayla ilgili öğrettiklerine neden güvenmememiz gerektiğini hatırlatır ve bu önemli yeteneğin neden bugün hiç olmadığı kadar önemli olduğunu açıklar.Çocuklarınıza paraya dair neler öğretmeniz gerektiğini açıklar, böylece onlar da günümüz dünyasının zorluklarına ve fırsatlarına kendilerini hazırlayabilir ve hak ettikleri zengin yaşamı sürebilir.\\n“Zengin Baba Yoksul Baba, finansal geleceklerinin kontrolünü eline almak isteyenler için bir başlangıç noktasıdır.n ve oluşturmanın neden yüklü bir maaştan daha önemli olabileceğini, işletme sahiplerinin ve yatırımcıların keyfini sürdüğü vergi avantajlarını öğretir. Evinizin aktif bir yatırım olduğuna karşı meydan okur; emlak balonu patladığında ve yüksek faizli mortgage fiyaskosu şiddetlendiği zaman milyonlarca insanın doğrudan öğrendiği gibi.\\nBize okul sistemlerinin parayla ilgili öğrettiklerine neden güvenmememiz gerektiğini hatırlatır ve bu önemli yeteneğin neden bugün hiç olmadığı kadar önemli olduğunu açıklar.Çocuklarınıza paraya dair neler öğretmeniz gerektiğini açıklar, böylece onlar da günümüz dünyasının zorluklarına ve fırsatlarına kendilerini hazırlayabilir ve hak ettikleri zengin yaşamı sürebilir.\\n“Zengin Baba Yoksul Baba, finansal geleceklerinin kontrolünü eline almak isteyenler için bir başlangıç noktasıdır.",
+      "isDeleted": true
+    },
+    {
+      "id": "11",
+      "kitapAdi": "Körlük 2 ",
+      "kitapYazari": "jay jay okacha",
+      "kitapKategorisi": "Diğer",
+      "kitapSayfaSayisi": "1234",
+      "kitapResmi": "",
+      "kitapAciklamasi": "sdfsfsdfsdfsdsdfsdggfdf"
     }
   ],
   "kategoriler": [
