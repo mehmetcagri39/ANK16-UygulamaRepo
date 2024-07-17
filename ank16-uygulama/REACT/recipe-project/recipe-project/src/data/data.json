@@ -83,13 +83,21 @@
       "id": "14",
       "title": "test2",
       "description": "test2",
-      "image": "https://cdnuploads.aa.com.tr/uploads/sirkethaberleri/Contents/2022/09/06/thumbs_b_c_bd0a0b36436ba18ea4a95d096d3ed80d.jpg"
+      "image": "https://cdnuploads.aa.com.tr/uploads/sirkethaberleri/Contents/2022/09/06/thumbs_b_c_bd0a0b36436ba18ea4a95d096d3ed80d.jpg",
+      "isDeleted": true
     },
     {
       "id": "15",
       "title": "test",
       "description": "test1",
       "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSXZylLZLdEOnpA7xCFv_tEqFvcThCY70wK7Q&s",
+      "isDeleted": true
+    },
+    {
+      "id": "16",
+      "title": "testtt",
+      "description": "testttttt",
+      "image": "",
       "isDeleted": true
     }
   ]

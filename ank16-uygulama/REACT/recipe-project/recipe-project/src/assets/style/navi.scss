@@ -1,40 +1,49 @@
 nav {
-    background-color: #414141;
-    color: white;
+  background-color: #414141;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  padding: 15px 25px;
+
+  .brand {
+    font-size: 20px;
     display: flex;
-    justify-content: space-between;
-    padding: 15px 25px;
+    align-items: center;
+    gap: 20px;
+    cursor: default;
 
-    .brand {
-        font-size: 20px;
-        display: flex;
-        align-items: center;
-        gap: 20px;
-        cursor: default;
-
-        img {
-            width: 90px;
-        }
+    img {
+      width: 90px;
     }
+  }
 
-    .liste {
-        list-style: none;
-        display: flex;
-        align-items: center;
-        gap: 25px;
+  .liste {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 25px;
 
-        li{
-            transition: .5s;
-            font-size: 15px;
+    li {
+      .active {
+        color: #20B2AA;
+      }
+      a {
+        display: inline-block;
+        color: white;
+        letter-spacing: 1px;
+        text-decoration: none;
+        transition: 0.6s;
+      }
 
-            cursor: pointer;
-            &:hover{
-                color: #088395;
-                text-decoration: underline;
-                transform: scale(1.2);
-            }
-        
+      transition: 0.5s;
+      font-size: 15px;
 
-        }
+      cursor: pointer;
+      &:hover {
+        color: #088395;
+        text-decoration: underline;
+        transform: scale(1.2);
+      }
     }
+  }
 }

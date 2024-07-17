@@ -2,7 +2,10 @@ import React, {useContext, useEffect, useState } from 'react';
 import '../assets/style/section.scss';
 import DataContext from '../../context/DataContext';
 
-const Section = () => {
+
+//Ekleme yapıldığında başarıyla eklendi mesajı verilmeli
+
+const AddRecipe = () => {
     const {selectedRecipe,
         title,
         description,
@@ -33,4 +36,4 @@ const Section = () => {
     );
 }
 
-export default Section;
+export default AddRecipe;

@@ -5,7 +5,6 @@ import { FaRegTrashAlt } from "react-icons/fa";
 import { MdModeEditOutline } from "react-icons/md";
 
 
-
 const Recipe = ({ recipe }) => {
   const { deleteRecipe, editRecipe, search } = useContext(DataContext);
   return (
