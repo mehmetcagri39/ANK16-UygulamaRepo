@@ -9,24 +9,25 @@ export const initialState = {
   kitapSayfaSayisi: "",
   kitapResmi: "",
   kitapAciklamasi: "",
-  search: "",
-};
+  search: ""
+}
+
 export const reducer = (state, action) => {
   switch (action.type) {
     //case_1:
-    case "kitaplariGetir":
+    case"kitaplariGetir":
       return {
         ...state,
         kitaplar: action.payload
       };
     //case_2
-    case "kategorileriGetir":
+    case"kategorileriGetir":
       return {
         ...state,
         kategoriler: action.payload
       };
     //case_3
-    case "resetForm":
+    case"resetForm":
       return {
         ...state,
         kitapAdi: "",
@@ -34,71 +35,71 @@ export const reducer = (state, action) => {
         kitapKategorisi: "Kategori Seçiniz",
         kitapSayfaSayisi: "",
         kitapResmi: "",
-        kitapAciklamasi: "",
+        kitapAciklamasi: ""
       };
     //case_4
-    case "secilenKategori":
+    case"secilenKategori":
       return {
         ...state,
         secilenKategori: action.payload,
       };
     //case_5
-    case "search":
+    case"search":
       return {
         ...state,
         search: action.payload,
       };
     //case_6-11
-    case "kitapAdi":
+    case"kitapAdi":
       return {
         ...state,
         kitapAdi: action.payload,
       };
-    case "kitapYazari":
+    case"kitapYazari":
       return {
         ...state,
         kitapYazari: action.payload,
       };
-    case "kitapKategorisi":
+    case"kitapKategorisi":
       return {
         ...state,
         kitapKategorisi: action.payload,
       };
-    case "kitapSayfaSayisi":
+    case"kitapSayfaSayisi":
       return {
         ...state,
         kitapSayfaSayisi: action.payload,
       };
-    case "kitapResmi":
+    case"kitapResmi":
       return {
         ...state,
         kitapResmi: action.payload,
       };
-    case "kitapAciklamasi":
+    case"kitapAciklamasi":
       return {
         ...state,
         kitapAciklamasi: action.payload,
       };
     //case_12
-    case "kitapEkle":
+    case"kitapEkle":
       const guncelKitaplik = [...state.kitaplar, action.yeni];
       return {
         ...state,
         kitaplar: guncelKitaplik,
       };
     //case_13
-    case "kitapSil":
+    case"kitapSil":
       const yeniGuncelKitaplik = state.kitaplar.filter(
-        (item) => item.id !== action.id
+        item => item.id !== action.id
       );
       return {
         ...state,
         kitaplar: yeniGuncelKitaplik,
       };
     //case_14
-    case "cardDuzenle":
+    case"cardDuzenle":
       const duzenlenecekKitap = state.kitaplar.find(
-        (item) => item.id === action.id
+        item => item.id === action.id
       );
       return {
         ...state,
@@ -111,8 +112,8 @@ export const reducer = (state, action) => {
         kitapAciklamasi: duzenlenecekKitap.kitapAciklamasi
       };
     //case_15
-    case "kitapDuzenle":
-      const editKitaplik = state.kitaplar.map((kitap) => {
+    case"kitapDuzenle":
+      const editKitaplik = state.kitaplar.map(kitap => {
         if (kitap.id === state.secilenKitap.id) {
           return { ...action.yeni };
         } else {

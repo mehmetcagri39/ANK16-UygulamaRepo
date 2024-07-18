@@ -13,7 +13,8 @@ export const DataProvider = ({ children }) => {
 
   //yapıdaki tüm state, metod, ...etc. buraya taşınacak.
   const companyName = "ANK-16";
-  const{secilenKitap,kitaplar,kitapAdi,kitapYazari,kitapKategorisi,kitapResmi,kitapAciklamasi,secilenKategori}=state
+  const{secilenKitap,kitaplar,kitapAdi,kitapYazari,kitapKategorisi,
+    kitapSayfaSayisi,kitapResmi,kitapAciklamasi}=state
 
   //const [stateAdi,stateMetodu] = useState(initialValue);
  
@@ -25,9 +26,9 @@ export const DataProvider = ({ children }) => {
       //Frontend ekleme işlemi
       // setKitaplar((prev) => [...prev, yeni]);
       //case_12
+      yeni.id = (Number(kitaplar[kitaplar.length-1].id)+1).toString()
       dispatch({type:"kitapEkle",yeni})
       //Backend ekleme işlemi
-
       const response = await axios.post(url, yeni);
     } else {
       //Kitap Düzenleme bölümü
@@ -43,8 +44,11 @@ export const DataProvider = ({ children }) => {
       //   })
       // );
       // setSecilenKitap("");
-    }//case_15
-    dispatch({type:"kitapDuzenle",yeni});
+      //case_15
+      yeni.id = secilenKitap.id
+      dispatch({type:"kitapDuzenle",yeni});
+    }
+
   };
 
   const kitapSil = async (id) => {
@@ -99,7 +103,6 @@ export const DataProvider = ({ children }) => {
     // console.log("BilgeAdam Akademi");
     kitapEkle({
       // id: Math.floor(Math.random()*100000000), SAKIN YAPMA!!!!
-      id: (Number(kitaplar[kitaplar.length - 1].id) + 1).toString(),
       kitapAdi: kitapAdi,
       kitapYazari: kitapYazari,
       kitapKategorisi: kitapKategorisi,
@@ -117,13 +120,10 @@ export const DataProvider = ({ children }) => {
     dispatch({type:"resetForm"})
   };
 
-  useEffect(() => {
+  useEffect(()=>{
     kategorileriGetir();
-  }, []);
-
-  useEffect(() => {
     kitaplariGetir();
-  }, [secilenKategori]);
+  },[])
 
   // useEffect(() => {
   //   if (secilenKitap) {

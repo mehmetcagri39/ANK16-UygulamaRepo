@@ -1,7 +1,7 @@
 import React from "react";
-import Navi from "./src/components/Navi";
-import Forms from "./src/components/Forms";
-import CardList from "./src/components/CardList";
+import Navi from "./components/Navi";
+import Forms from "./components/Forms";
+import CardList from "./components/CardList";
 
 const App = () => {
 

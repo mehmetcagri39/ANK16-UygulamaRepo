@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import "../assets/img/style/card.scss";
+import "../assets/style/card.scss";
 import Book from "../assets/img/defaultpic.png";
 import DataContext from "../context/DataContext";
 import { FaRegTrashAlt } from "react-icons/fa";
@@ -9,7 +9,7 @@ const Card = ({ kitap }) => {
   const { kitapSil, cardDuzenle, state } = useContext(DataContext);
   return (
     (kitap.kitapAdi.toLowerCase().startsWith(state.search.toLowerCase()) ||
-      kitap.kitapYazari.toLowerCase().startsWith(state.search.toLowerCase())) && 
+      kitap.kitapYazari.toLowerCase().startsWith(state.search.toLowerCase()))&& 
       <div className="card">
         <button onClick={() => kitapSil(kitap.id)} className="delete">
           <FaRegTrashAlt size={40} />

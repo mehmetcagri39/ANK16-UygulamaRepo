@@ -52,7 +52,8 @@
       "kitapKategorisi": "Roman",
       "kitapSayfaSayisi": "323",
       "kitapResmi": "",
-      "kitapAciklamasi": "asdfsdf"
+      "kitapAciklamasi": "asdfsdf",
+      "isDeleted": true
     },
     {
       "id": "7",
@@ -101,6 +102,15 @@
       "kitapSayfaSayisi": "1234",
       "kitapResmi": "",
       "kitapAciklamasi": "sdfsfsdfsdfsdsdfsdggfdf"
+    },
+    {
+      "kitapAdi": "Computer Programming Crash Course",
+      "kitapYazari": "Julian James McKinnon",
+      "kitapKategorisi": "Yazılım",
+      "kitapSayfaSayisi": "538",
+      "kitapResmi": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSFsWnMOxhXUMmnW-XsgKNLX7CO9MYKPPO4fw&s",
+      "kitapAciklamasi": "Written with the beginner in mind, this incredible 7-in-1 book bundle brings you everything you need to know about programming. Packed with a ton of advice and step-by-step instructions on all the most popular and useful languages, you’ll explore how even a complete beginner can get started with ease!\n\nCovering data science, Arduino, and even Raspberry pi, you’ll learn the fundamentals of object-oriented programming, operators, variables, loops, classes, arrays, strings and so much more!\n\nHere’s just a little of what you’ll discover inside:\n\nUncovering The Secrets of C++, C#, Python, SQL and More\nBreaking Down The Fundamentals of Data Science\nUnderstanding The Different Classes, Operations, and Data Types\nFundamental Programming Skills That YOU Need To Know\nTips and Tricks For Getting The Most out of Each Language\nThe Best Strategies For Using Arduino and Raspberry Pi\nCommon Errors and How To Troubleshoot Them\nAnd Much More!",
+      "id": "12"
     }
   ],
   "kategoriler": [

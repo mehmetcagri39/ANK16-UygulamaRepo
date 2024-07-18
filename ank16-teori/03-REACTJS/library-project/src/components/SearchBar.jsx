@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import DataContext from "../context/DataContext";
-import "../assets/img/style/search.scss"
+import "../assets/style/search.scss"
 
 const SearchBar = () => {
   const {state,dispatch} = useContext(DataContext);

@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'
 import Brand from '../assets/img/brand.png'
-import '../assets/img/style/navi.scss'
+import '../assets/style/navi.scss'
 import DataContext from '../context/DataContext'
 
 
@@ -16,7 +16,7 @@ const Navi = () => {
         
         {
           state.kategoriler.map(kategori=>
-              <li onClick={(e)=>dispatch({type:"secilenKategori",payload:e.target.inner})} key={kategori.kategoriId}>{kategori.kategoriAdi}</li>
+              <li onClick={(e)=>dispatch({type:"secilenKategori",payload:e.target.innerText})} key={kategori.kategoriId}>{kategori.kategoriAdi}</li>
             )
         }
 
