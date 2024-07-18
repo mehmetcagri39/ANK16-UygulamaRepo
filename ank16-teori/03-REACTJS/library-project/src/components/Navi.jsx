@@ -5,7 +5,7 @@ import DataContext from '../context/DataContext'
 
 
 const Navi = () => {
-  const {companyName,kategoriler,setSecilenKategori} = useContext(DataContext);
+  const {companyName,state,dispatch} = useContext(DataContext);
   return (
     <nav>
       <div className="brand">
@@ -15,8 +15,8 @@ const Navi = () => {
       <ul className="liste">
         
         {
-          kategoriler.map(kategori=>
-              <li onClick={(e)=>setSecilenKategori(e.target.innerText)} key={kategori.kategoriId}>{kategori.kategoriAdi}</li>
+          state.kategoriler.map(kategori=>
+              <li onClick={(e)=>dispatch({type:"secilenKategori",payload:e.target.inner})} key={kategori.kategoriId}>{kategori.kategoriAdi}</li>
             )
         }
 

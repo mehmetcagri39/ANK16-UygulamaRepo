@@ -70,7 +70,8 @@
       "kitapKategorisi": "Yazılım",
       "kitapSayfaSayisi": "250",
       "kitapResmi": "",
-      "kitapAciklamasi": "C#"
+      "kitapAciklamasi": "C#",
+      "isDeleted": true
     },
     {
       "id": "9",

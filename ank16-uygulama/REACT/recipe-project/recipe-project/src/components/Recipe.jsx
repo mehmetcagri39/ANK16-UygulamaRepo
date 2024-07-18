@@ -3,19 +3,28 @@ import "../assets/style/recipe.scss";
 import DataContext from "../../context/DataContext";
 import { FaRegTrashAlt } from "react-icons/fa";
 import { MdModeEditOutline } from "react-icons/md";
-
+import { useNavigate } from "react-router-dom";
 
 const Recipe = ({ recipe }) => {
   const { deleteRecipe, editRecipe, search } = useContext(DataContext);
+  const navigate = useNavigate();
+
+  const handleCardClick = (e) => {
+    // Eğer tıklanan element delete veya edit butonu değilse
+    if (!e.target.closest(".delete") && !e.target.closest(".edit")) {
+      navigate(`/ank-16/RecipeList/${recipe.id}`);
+    }
+  };
+
   return (
     (recipe.title.toLowerCase().startsWith(search.toLowerCase()) ||
-      recipe.description.toLowerCase().startsWith(search.toLowerCase())) && ( //ingredient ile bulma da eklenebilir...
-      <div className="card">
+      recipe.description.toLowerCase().startsWith(search.toLowerCase())) && (
+      <div className="card" onClick={handleCardClick}>
         <button onClick={() => deleteRecipe(recipe.id)} className="delete">
-        <FaRegTrashAlt size={40}/>
+          <FaRegTrashAlt size={40} />
         </button>
         <button onClick={() => editRecipe(recipe.id)} className="edit">
-        <MdModeEditOutline size={50}/>
+          <MdModeEditOutline size={50} />
         </button>
         <img src={recipe.image} />
         <div className="card-body">
@@ -27,7 +36,6 @@ const Recipe = ({ recipe }) => {
                   recipe.description.lastIndexOf(" ", 100)
                 ) + "..."
               : recipe.description}
-            {/* //100 karakterden kısaysa da göster deniyor */}
           </p>
         </div>
       </div>

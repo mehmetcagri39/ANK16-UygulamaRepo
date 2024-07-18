@@ -3,31 +3,19 @@ import '../assets/img/style/forms.scss'
 import DataContext from '../context/DataContext'
 
 const Forms = () => {
-  const {secilenKitap,
-         kitapAdi,
-         kitapYazari,
-         kitapKategorisi,
-         kitapResmi,
-         kitapSayfaSayisi,
-         kitapAciklamasi,
-        setKitapAdi,
-        setKitapYazari,
-        setKitapKategorisi,
-        setKitapResmi,
-        setKitapSayfaSayisi,
-        setKitapAciklamasi,
-        handleSubmit
-        } = useContext(DataContext);
+  const {state, dispatch, handleSubmit} = useContext(DataContext);
+  const {secilenKitap,kitapAdi,kitapYazari,kitapKategorisi,kitapResmi,kitapAciklamasi,kitapSayfaSayisi} = state
 
   
   
 
   return (
+    //case_6-11
     <form onSubmit={handleSubmit}>
       <h3>{secilenKitap?"Kitap Düzenle":"Kitap Ekle"}</h3>
-      <input value={kitapAdi} onChange={e=>setKitapAdi(e.target.value)} type="text" placeholder='Kitap Adı' />
-      <input value={kitapYazari} onChange={e=>setKitapYazari(e.target.value)} type="text" placeholder='Kitap Yazarı' />
-      <select value={kitapKategorisi} onChange={e=>setKitapKategorisi(e.target.value)}>
+      <input value={kitapAdi} onChange={e=>dispatch({type:"kitapAdi",payload:e.target.value})} type="text" placeholder='Kitap Adı' />
+      <input value={kitapYazari} onChange={e=>({type:"kitapYazari",payload:e.target.value})} type="text" placeholder='Kitap Yazarı' />
+      <select value={kitapKategorisi} onChange={e=>({type:"kitapKategorisi",payload:e.target.value})}>
         <option>Kategori Seçiniz</option>
         <option>Yazılım</option>
         <option>Tarih</option>
@@ -35,9 +23,9 @@ const Forms = () => {
         <option>Finans</option>
         <option>Diğer</option>
       </select>
-      <input value={kitapSayfaSayisi} onChange={e=>setKitapSayfaSayisi(e.target.value)} type="number" placeholder='Sayfa Sayısı' />
-      <input value={kitapResmi} onChange={e=>setKitapResmi(e.target.value)} type="url" placeholder='Kitap resmi(url)' />
-      <textarea value={kitapAciklamasi} onChange={e=>setKitapAciklamasi(e.target.value)} placeholder='Kitap Açıklaması'></textarea>
+      <input value={kitapSayfaSayisi} onChange={e=>({type:"kitapSayfaSayisi",payload:e.target.value})} type="number" placeholder='Sayfa Sayısı' />
+      <input value={kitapResmi} onChange={e=>({type:"kitapResmi",payload:e.target.value})} type="url" placeholder='Kitap resmi(url)' />
+      <textarea value={kitapAciklamasi} onChange={e=>({type:"kitapAciklamasi",payload:e.target.value})} placeholder='Kitap Açıklaması'></textarea>
       <input disabled={kitapAdi==="" || kitapYazari==="" || kitapSayfaSayisi==="" || kitapAciklamasi==="" || kitapKategorisi === "Kategori Seçiniz"} type="submit" value={secilenKitap?"Düzenle":"Ekle"} />
     </form>
   )

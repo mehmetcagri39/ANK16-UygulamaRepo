@@ -1,17 +1,17 @@
 import axios from "axios";
-import { createContext, useEffect, useState } from "react";
+import { createContext, useCallback, useEffect, useState } from "react";
 
-//context oluşturulması
+// context oluşturulması
 const DataContext = createContext();
 
-//oluşturulan context için bir sağlayıcı oluşturulur.
+// oluşturulan context için bir sağlayıcı oluşturulur.
 export const DataProvider = ({ children }) => {
-    //export yazılma sebebi dışarıda da kullanabilmek için
+  // export yazılma sebebi dışarıda da kullanabilmek için
 
-  //yapıdaki tüm state, metod, ...etc. buraya taşınacak.
+  // yapıdaki tüm state, metod, ...etc. buraya taşınacak.
   const companyName = "MCC - The Recipe";
 
-  //const [stateAdi,stateMetodu] = useState(initialValue);
+  // const [stateAdi,stateMetodu] = useState(initialValue);
   const [fakeRecipes, setRecipes] = useState([]);
   const [selectedRecipe, setSelectedRecipe] = useState("");
   const [title, setTitle] = useState("");
@@ -21,7 +21,7 @@ export const DataProvider = ({ children }) => {
   const [descError, setDescError] = useState(false);
   const [search, setSearch] = useState("");
 
-  const addRecipe = async (yeni) => {
+  const addRecipe = useCallback(async (yeni) => {
     let url = "http://localhost:3005/recipes";
     if (!selectedRecipe) {
       setRecipes((prev) => [...prev, yeni]);
@@ -41,35 +41,27 @@ export const DataProvider = ({ children }) => {
       );
       setSelectedRecipe("");
     }
-    // {
-    //   method:"POST",
-    //   headers: {"Content-Type":"application-json"},
-    //   body: JSON.stringify(yeni)
-    // });
-    // if (cevap.status ===201) {
-    //   setRecipes(prev=>[...prev, yeni])
-    // }
-  };
+  }, [selectedRecipe]);
 
   const deleteRecipe = async (id) => {
     setRecipes((prev) => prev.filter((fromState) => fromState.id !== id));
     const url = `http://localhost:3005/recipes/${id}`;
-    // const response = await axios.delete(url); !! Tehlikeli !!
-
-    const response = await axios.patch(url, { isDeleted: true }); //axios delete yerine patch kullanıldı. axios.delete yorum satırına alındı fakat yine de çalışıyor.
+    const response = await axios.patch(url, { isDeleted: true }); // axios patch kullanıldı
   };
+  // axios delete yerine patch kullanıldı. axios.delete yorum satırına alındı fakat yine de çalışıyor.
+  // const response = await axios.delete(url); !! Tehlikeli !!
 
-  const getRecipes = async () => {
+  const getRecipes = useCallback(async () => {
     const url = "http://localhost:3005/recipes";
     const response = await axios.get(url);
     const fakeRecipes = await response.data;
     setRecipes(fakeRecipes);
-  };
+  }, []);
 
-  const editRecipe = (id) => {
+  const editRecipe = useCallback((id) => {
     setSelectedRecipe(fakeRecipes.find((item) => item.id === id));
-    console.log(fakeRecipes.find((item) => item.id === id));
-  };
+  }, [fakeRecipes]);
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -103,21 +95,21 @@ export const DataProvider = ({ children }) => {
       setTitle(selectedRecipe.title);
       setDescription(selectedRecipe.description);
       setImage(selectedRecipe.image);
-      window.scrollTo(0, 0); // Sayfanın başına yönlendir
     }
   }, [selectedRecipe]);
 
   useEffect(() => {
     getRecipes();
-  });
+  }, []);
+
   return (
     <DataContext.Provider
       value={{
-        companyName, //Navi componentinden gelen👈
+        companyName, // Navi componentinden gelen
         editRecipe,
-        deleteRecipe, //Recipe componentinden gelenler 👈
-        fakeRecipes, //RecipeList componentinden gelenler 👈
-        //Sections componentinden gelenler👇
+        deleteRecipe, // Recipe componentinden gelenler
+        fakeRecipes, // RecipeList componentinden gelenler
+        // Sections componentinden gelenler
         selectedRecipe,
         title,
         description,
@@ -127,10 +119,9 @@ export const DataProvider = ({ children }) => {
         setImage,
         handleSubmit,
         titleError,
-        descError,//Sections componentinden gelenler👆
+        descError, // Sections componentinden gelenler
         search,
-        setSearch
-
+        setSearch,
       }}
     >
       {children}

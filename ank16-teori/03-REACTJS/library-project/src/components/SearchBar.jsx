@@ -3,12 +3,13 @@ import DataContext from "../context/DataContext";
 import "../assets/img/style/search.scss"
 
 const SearchBar = () => {
-  const { secilenKategori,setSearch } = useContext(DataContext);
+  const {state,dispatch} = useContext(DataContext);
   return (
+    //case_5
     <div className="search">
       
-      <h3 style={{ marginLeft: "25px" }}>{secilenKategori}</h3>
-      <input onChange={(e)=>setSearch(e.target.value)} type="text" placeholder="Ara.."  />
+      <h3 style={{ marginLeft: "25px" }}>{state.secilenKategori}</h3>
+      <input onChange={(e)=>dispatch({type:"search",payload:e.target.value})} type="text" placeholder="Ara.."  />
       {/* <FaMagnifyingGlass /> */}
 
     </div>
