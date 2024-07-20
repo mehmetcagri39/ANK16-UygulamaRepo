@@ -1,17 +1,11 @@
 import axios from "axios";
 import { createContext, useCallback, useEffect, useState } from "react";
 
-// context oluşturulması
 const DataContext = createContext();
 
-// oluşturulan context için bir sağlayıcı oluşturulur.
 export const DataProvider = ({ children }) => {
-  // export yazılma sebebi dışarıda da kullanabilmek için
-
-  // yapıdaki tüm state, metod, ...etc. buraya taşınacak.
   const companyName = "MCC - The Recipe";
 
-  // const [stateAdi,stateMetodu] = useState(initialValue);
   const [fakeRecipes, setRecipes] = useState([]);
   const [selectedRecipe, setSelectedRecipe] = useState("");
   const [title, setTitle] = useState("");
@@ -19,6 +13,7 @@ export const DataProvider = ({ children }) => {
   const [image, setImage] = useState("");
   const [titleError, setTitleError] = useState(false);
   const [descError, setDescError] = useState(false);
+  const [successMessage, setSuccessMessage] = useState("");
   const [search, setSearch] = useState("");
 
   const addRecipe = useCallback(async (yeni) => {
@@ -26,7 +21,8 @@ export const DataProvider = ({ children }) => {
     if (!selectedRecipe) {
       setRecipes((prev) => [...prev, yeni]);
 
-      const response = await axios.post(url, yeni);
+      await axios.post(url, yeni);
+      setSuccessMessage("Recipe added successfully!");
     } else {
       url += `/${selectedRecipe.id}`;
       const response2 = await axios.put(url, yeni);
@@ -40,16 +36,15 @@ export const DataProvider = ({ children }) => {
         })
       );
       setSelectedRecipe("");
+      setSuccessMessage("Recipe edited successfully!");
     }
   }, [selectedRecipe]);
 
   const deleteRecipe = async (id) => {
     setRecipes((prev) => prev.filter((fromState) => fromState.id !== id));
     const url = `http://localhost:3005/recipes/${id}`;
-    const response = await axios.patch(url, { isDeleted: true }); // axios patch kullanıldı
+    await axios.patch(url, { isDeleted: true });
   };
-  // axios delete yerine patch kullanıldı. axios.delete yorum satırına alındı fakat yine de çalışıyor.
-  // const response = await axios.delete(url); !! Tehlikeli !!
 
   const getRecipes = useCallback(async () => {
     const url = "http://localhost:3005/recipes";
@@ -65,13 +60,9 @@ export const DataProvider = ({ children }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (
-      (title === "" && description === "") ||
-      (title !== "" && description === "") ||
-      (title === "" && description !== "")
-    ) {
-      setTitleError(true);
-      setDescError(true);
+    if (!title || !description) {
+      setTitleError(!title);
+      setDescError(!description);
       return;
     } else {
       setTitleError(false);
@@ -79,10 +70,10 @@ export const DataProvider = ({ children }) => {
     }
 
     addRecipe({
-      id: (Number(fakeRecipes[fakeRecipes.length - 1].id) + 1).toString(),
-      title: title,
-      description: description,
-      image: image,
+      id: (Number(fakeRecipes[fakeRecipes.length - 1]?.id || 0) + 1).toString(),
+      title,
+      description,
+      image,
     });
 
     setTitle("");
@@ -100,16 +91,15 @@ export const DataProvider = ({ children }) => {
 
   useEffect(() => {
     getRecipes();
-  }, []);
+  }, [getRecipes]);
 
   return (
     <DataContext.Provider
       value={{
-        companyName, // Navi componentinden gelen
+        companyName, 
         editRecipe,
-        deleteRecipe, // Recipe componentinden gelenler
-        fakeRecipes, // RecipeList componentinden gelenler
-        // Sections componentinden gelenler
+        deleteRecipe, 
+        fakeRecipes, 
         selectedRecipe,
         title,
         description,
@@ -119,9 +109,11 @@ export const DataProvider = ({ children }) => {
         setImage,
         handleSubmit,
         titleError,
-        descError, // Sections componentinden gelenler
+        descError, 
         search,
         setSearch,
+        successMessage,
+        setSuccessMessage,
       }}
     >
       {children}

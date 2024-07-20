@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import "../assets/style/navi.scss";
-import DataContext from "../../context/DataContext";
+import DataContext from "../context/DataContext";
 import { NavLink, Outlet } from "react-router-dom";
 
 const Navi = () => {

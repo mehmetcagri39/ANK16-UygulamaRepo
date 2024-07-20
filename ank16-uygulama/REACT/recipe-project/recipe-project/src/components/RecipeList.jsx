@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import Recipe from "./Recipe";
-import DataContext from "../../context/DataContext";
+import DataContext from "../context/DataContext";
 import SearchBar from "./SearchBar";
 
 const RecipeList = () => {
@@ -24,3 +24,4 @@ const RecipeList = () => {
 };
 
 export default RecipeList;
+ 

@@ -1,17 +1,16 @@
-import React from "react";
-import Navi from "./components/Navi";
-import Forms from "./components/Forms";
-import CardList from "./components/CardList";
+import React from 'react'
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import Home from './components/Home.jsx'
 
 const App = () => {
-
   return (
-    <>
-      <Navi />
-      <Forms />
-      <CardList />
-    </>
-  );
-};
+    <BrowserRouter>
+    <Routes>
+        <Route path='/' element={<Home/>}/>
+        <Route path='/login'/>
+    </Routes>
+    </BrowserRouter>
+  )
+}
 
-export default App;
+export default App

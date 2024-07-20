@@ -5,9 +5,19 @@
 }
 html,body{
     font-family: monospace;
+    margin: 0;
+  padding: 0;
+  background-image: url('https://images.pexels.com/photos/260922/pexels-photo-260922.jpeg?cs=srgb&dl=pexels-pixabay-260922.jpg&fm=jpg');
+  background-size: cover; 
+  background-position: center; 
+  background-repeat: repeat;
 
 }
 ::placeholder{
     font-family: monospace;
     font-size: 14px;
 }
+a{
+    color: wheat;
+}
+
