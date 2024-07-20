@@ -3,6 +3,8 @@ import { Link, useNavigate } from 'react-router-dom';
 import AuthContext from '../context/AuthContext';
 import '../assets/style/login.scss'
 
+//Login sayfasına /login ile ulaşılabilir.
+
 const Login = () => {
     const[user,setUser]=useState("");
     const[password,setPassword]=useState("");
